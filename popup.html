@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { width: 340px; padding: 14px; }
+    .preset-grid { grid-template-columns: 1fr 1fr; }
+    .actions { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+    .today { padding: 10px 12px; margin-bottom: 14px; border-radius: 10px; background: var(--surface); }
+    .today-total { font-size: 22px; font-weight: 600; }
+    .today ol { list-style: none; margin: 6px 0 0; padding: 0; font-size: 13px; }
+    .today li { display: flex; justify-content: space-between; gap: 8px; padding: 2px 0; }
+    .today li span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .today li span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+  <h1>Site Blocker</h1>
+  <div class="today">
+    <div class="muted">Time online today</div>
+    <div id="today-total" class="today-total">…</div>
+    <ol id="today-top"></ol>
+  </div>
+  <p class="muted">Check a site to block it.</p>
+  <div id="presets" class="preset-grid"></div>
+  <div class="actions">
+    <button id="block-current" class="primary" hidden></button>
+    <button id="open-stats">Usage dashboard</button>
+    <button id="open-options">Custom patterns &amp; settings</button>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blocked</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { min-height: 100vh; display: grid; place-items: center; }
+    .card { max-width: 520px; padding: 32px; text-align: center; }
+    .icon { width: 72px; height: 72px; margin-bottom: 16px; }
+    h1 { font-size: 26px; margin-bottom: 8px; }
+    #url { word-break: break-all; font-size: 13px; }
+    .row { justify-content: center; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="icon" src="icons/icon128.png" alt="">
+    <h1>Not now.</h1>
+    <p>This site is on your block list. Go do the thing you were meant to be doing.</p>
+    <p id="url" class="muted"></p>
+    <p id="rule" class="muted"></p>
+    <div class="row">
+      <button id="close" class="primary">Close tab</button>
+      <button id="back">Go back</button>
+      <button id="settings">Settings</button>
+    </div>
+  </div>
+  <script type="module" src="blocked.js"></script>
+</body>
+</html>

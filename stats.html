@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Usage · Site Blocker</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="stats.css">
+</head>
+<body>
+  <main>
+    <header class="top">
+      <div>
+        <h1>Usage</h1>
+        <p class="muted">Time counts while Brave is focused and you're active, or a tab is playing audio.</p>
+      </div>
+      <div class="segmented" id="range" role="tablist">
+        <button data-range="today">Today</button>
+        <button data-range="yesterday">Yesterday</button>
+        <button data-range="7">7 days</button>
+        <button data-range="30">30 days</button>
+      </div>
+    </header>
+
+    <section class="tiles">
+      <div class="tile">
+        <div class="tile-label">Time online</div>
+        <div class="tile-value hero" id="tile-total"></div>
+      </div>
+      <div class="tile">
+        <div class="tile-label" id="tile-second-label"></div>
+        <div class="tile-value" id="tile-second"></div>
+      </div>
+      <div class="tile">
+        <div class="tile-label">Most used</div>
+        <div class="tile-value" id="tile-top"></div>
+        <div class="tile-sub muted" id="tile-top-sub"></div>
+      </div>
+      <div class="tile">
+        <div class="tile-label">Blocked attempts</div>
+        <div class="tile-value" id="tile-blocked"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="chart-title"></h2>
+      <div class="chart" id="chart">
+        <div class="y-axis" id="y-axis"></div>
+        <div class="plot" id="plot"></div>
+        <div class="x-axis" id="x-axis"></div>
+      </div>
+      <div class="tooltip" id="tooltip" hidden></div>
+    </section>
+
+    <section class="card">
+      <h2>Sites</h2>
+      <p class="muted empty" id="empty" hidden>No activity yet for this period. Browse a bit and check back.</p>
+      <table class="sites" id="sites">
+        <thead>
+          <tr>
+            <th class="site">Site</th>
+            <th class="time">Time</th>
+            <th class="num">Share</th>
+            <th class="num">Visits</th>
+            <th class="num">Blocked</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <footer class="row muted">
+      <span>Data stays on this device and is kept for 90 days.</span>
+      <button id="clear">Clear usage data</button>
+    </footer>
+  </main>
+  <script type="module" src="stats.js"></script>
+</body>
+</html>

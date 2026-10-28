@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Site Blocker settings</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    main { max-width: 760px; margin: 0 auto; padding: 32px 24px 64px; }
+    table.syntax { border-collapse: collapse; font-size: 13px; margin: 8px 0 12px; }
+    table.syntax td { padding: 3px 14px 3px 0; vertical-align: top; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Site Blocker</h1>
+    <p class="muted">Changes apply immediately, including to tabs that are already open. <a href="stats.html">View usage dashboard →</a></p>
+
+    <h2>Common sites</h2>
+    <div id="presets" class="preset-grid"></div>
+
+    <h2>Custom patterns</h2>
+    <p class="muted">One per line. Lines starting with <code>#</code> are comments.</p>
+    <table class="syntax">
+      <tr><td><code>example.com</code></td><td>example.com and all its subdomains</td></tr>
+      <tr><td><code>*.example.com</code></td><td>only subdomains (not example.com itself)</td></tr>
+      <tr><td><code>*tube.com</code></td><td>any domain ending in “tube.com”</td></tr>
+      <tr><td><code>reddit.*</code></td><td>any top-level domain (reddit.com, reddit.co.uk, …)</td></tr>
+      <tr><td><code>youtube.com/shorts</code></td><td>URLs whose path starts with /shorts</td></tr>
+      <tr><td><code>reddit.com/r/*/comments</code></td><td><code>*</code> matches anything, including <code>/</code></td></tr>
+      <tr><td><code>/regex/</code></td><td>a regular expression tested against the full URL (case-insensitive)</td></tr>
+    </table>
+    <textarea id="custom" spellcheck="false" placeholder="# Examples&#10;youtube.com/shorts&#10;*.substack.com&#10;/^https:\/\/(www\.)?amazon\.[a-z.]+\/gp\/video/"></textarea>
+    <div class="row">
+      <button id="save" class="primary">Save</button>
+      <span id="status" class="status"></span>
+    </div>
+    <ul id="problems" class="problems"></ul>
+
+    <h2>Test a URL</h2>
+    <p class="muted">Checks against your saved settings.</p>
+    <input id="test-url" type="text" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+    <p id="test-result" class="status" style="margin-top: 8px"></p>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>
